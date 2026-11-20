@@ -70,8 +70,8 @@ for idx, row in edited.iterrows():
         valid = False
         errors.append(f"Рядок {idx+1}: потужність має бути більшою за нуль.")
     if pd.isna(row["Потрібно годин"]) or row["Потрібно годин"] < 0 or row["Потрібно годин"] > 24:
-    valid = False
-    errors.append(f"Рядок {idx+1}: потрібна кількість годин має бути від 0 до 24.")
+        valid = False
+        errors.append(f"Рядок {idx+1}: потрібна кількість годин має бути від 0 до 24.")
     if pd.isna(row["Пріоритет"]) or not 1 <= row["Пріоритет"] <= 5:
         valid = False
         errors.append(f"Рядок {idx+1}: пріоритет має бути від 1 до 5.")
