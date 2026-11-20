@@ -106,7 +106,12 @@ if st.button("⚡ Розрахувати оптимальний графік", t
         start = int(r["Початок вікна"])
         end = int(r["Кінець вікна"])
         for t in range(outage_hours):
-            x[i, t] = pulp.LpVariable(f"x_{i}_{t}", cat="Binary")
+            x[i, t] = pulp.LpVariable(
+    f"x_{i}_{t}",
+    lowBound=0,
+    upBound=1,
+    cat=pulp.LpInteger
+)
             if not (start <= t < end):
                 model += x[i, t] == 0
 
